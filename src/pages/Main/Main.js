@@ -1,7 +1,24 @@
-import { Fragment } from "react";
+import { Fragment, useState, useRef } from "react";
 import "./Main.scss";
 
 function Main() {
+  //댓글 목록 관리
+  const [commentArray, setCommentArray] = useState([]);
+
+  //각 댓글에는 고유한 key값이 있어야 한다.
+  const [id, setId] = useState(1);
+  const value = useRef();
+
+  //댓글 추가 함수
+  const addComment = () => {
+    setId(id + 1);
+    const newComment = {
+      id: id,
+      content: value.current.value,
+    };
+
+    setCommentArray([...commentArray, newComment]);
+  };
   return (
     <Fragment>
       <header>
@@ -94,14 +111,15 @@ function Main() {
               <span className="writer">dawon_Oh</span>
               <span className="content">날씨 좋다🌞</span>
             </p>
-            <p className="commentP grayFont">댓글 2개 모두 보기</p>
-            <div className="commentList">
-              <p className="commentP">
-                <span className="writer">dawon_Oh</span>
-                <span className="tag">@friend_1</span>
-                <span className="content">날씨가 좋네요 요즘!</span>
-              </p>
-            </div>
+            {commentArray.map((comment) => {
+              return (
+                <p className="commentP" key={comment.id}>
+                  <span className="writer">dawon_Oh</span>
+                  <span className="tag">@friend_1</span>
+                  <span className="content">{comment.content}</span>
+                </p>
+              );
+            })}
             <div className="writeDate grayFont">2일 전</div>
           </div>
           <div className="addComment alignCenter">
@@ -118,10 +136,13 @@ function Main() {
                   type="text"
                   placeholder="댓글 달기..."
                   className="commentInput"
+                  ref={value}
                 />
               </div>
             </div>
-            <button className="addBtn">게시</button>
+            <button className="addBtn" onClick={addComment}>
+              게시
+            </button>
           </div>
         </div>
         <div className="feed">
