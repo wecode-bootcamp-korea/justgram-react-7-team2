@@ -1,0 +1,86 @@
+/*background-image로 사용할 이미지는 src/assets/images/에 있음*/
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+$border-gray: 1px solid #e6e6e6;
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* #loginMain 가운데 정렬을 위한 flex 설정*/
+#flexContainer {
+  height: 100vh;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#loginMain {
+  width: 350px;
+  height: 396px;
+  border: $border-gray;
+  flex-direction: column;
+}
+
+#title {
+  font: {
+    family: "Lobster", cursive;
+    size: 2.5em;
+  }
+  margin-bottom: 70px;
+}
+
+.inputForm {
+  flex-direction: column;
+}
+
+.inputArea {
+  width: 250px;
+  height: 35px;
+  margin-bottom: 5px;
+  text-indent: 7px;
+  background-color: #fafafa;
+  @include placeholder {
+    color: #999999;
+    font-size: 0.85em;
+  }
+  border: $border-gray {
+    radius: 3px;
+  }
+}
+
+#loginBtn {
+  width: 250px;
+  height: 28px;
+  color: #fff;
+  border: none;
+  background-color: #c4e1fb;
+  border-radius: 4px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+#lostPw {
+  text-decoration: none;
+  font-size: 0.7em;
+  margin-top: 80px;
+  color: #003569;
+}
