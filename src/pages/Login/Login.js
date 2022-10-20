@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import "./Login.scss";
 import { useNavigate } from "react-router-dom";
-/*id pw 기준을 통과하면 성공했다는 어떤 시그널이 있었으면 좋겠다
+/*id pw 기준을 통과하면 성공했다는 어떤 시그널이 있었으면
 state 값으로 관리할 수 있겠구나 -> id pw 기준이 둘다 통과하면 state -true , 아니면 false
  */
 function Login() {
