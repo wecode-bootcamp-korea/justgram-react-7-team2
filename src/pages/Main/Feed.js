@@ -9,12 +9,14 @@ import {
 import { faComment, faBookmark } from "@fortawesome/free-regular-svg-icons";
 
 export default function Feed() {
+  const [isvaild, setVaild] = useState(false);
+
   const [id, setId] = useState("");
   const value = useRef();
   const [commentArray, setCommentArray] = useState([
     {
       id: 0,
-      name: "subbny",
+      name: "bbyounghyun",
       content: "누가 찍었는지 잘 찍었다",
     },
   ]);
@@ -22,7 +24,7 @@ export default function Feed() {
     setId(id + 1);
     const newComment = {
       id: id,
-      name: "subbny",
+      name: "bbyounghyun",
       blank: "  ",
       content: value.current.value,
     };
@@ -90,19 +92,33 @@ export default function Feed() {
           <div className="comment-write">
             {commentArray.map((comment) => {
               return (
-                <li key={comment.id}>
-                  {comment.name}
+                <div className="newComment" key={comment.id}>
+                  <span>{comment.name}</span>
                   {comment.blank}
                   {comment.content}
-                </li>
+                </div>
               );
             })}
           </div>
           <div className="time">42분전</div>
         </div>
         <div className="comment-bar">
-          <input type="text" placeholder="댓글달기...." ref={value} />
-          <button className="gaesi" onClick={addComment}>
+          <input
+            type="text"
+            placeholder="댓글달기...."
+            ref={value}
+            onChange={function changeColor(e) {
+              setVaild(e.target.value);
+              isvaild === null ? setVaild(false) : setVaild(true);
+            }}
+          />
+          <button
+            style={{
+              color: isvaild ? "rgb(0 149 246)" : "rgb(216 234 252)",
+            }}
+            className="gaesi"
+            onClick={addComment}
+          >
             게시
           </button>
         </div>
