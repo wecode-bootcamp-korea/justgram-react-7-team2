@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Comment from "./Comment";
 import {
   faEllipsis,
   faHeart,
@@ -13,19 +14,13 @@ export default function Feed() {
 
   const [id, setId] = useState("");
   const value = useRef();
-  const [commentArray, setCommentArray] = useState([
-    {
-      id: 0,
-      name: "bbyounghyun",
-      content: "누가 찍었는지 잘 찍었다",
-    },
-  ]);
+  const [commentArray, setCommentArray] = useState([]);
   const addComment = () => {
     setId(id + 1);
     const newComment = {
       id: id,
       name: "bbyounghyun",
-      blank: "  ",
+      tag: "@subbny",
       content: value.current.value,
     };
     setCommentArray([...commentArray, newComment]);
@@ -93,9 +88,12 @@ export default function Feed() {
             {commentArray.map((comment) => {
               return (
                 <div className="newComment" key={comment.id}>
-                  <span>{comment.name}</span>
-                  {comment.blank}
-                  {comment.content}
+                  <Comment
+                    id={comment.id}
+                    name={comment.name}
+                    tag={comment.tag}
+                    content={comment.content}
+                  ></Comment>
                 </div>
               );
             })}

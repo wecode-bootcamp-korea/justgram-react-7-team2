@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./Login.scss";
 import { useNavigate } from "react-router-dom";
 /*id pw 기준을 통과하면 성공했다는 어떤 시그널이 있었으면 좋겠다
@@ -9,8 +9,8 @@ function Login() {
   const goToMain = () => {
     navigate("/main");
   };
-  let [id, saveId] = useState("");
-  let [pw, savePw] = useState("");
+  const id = useRef();
+  const pw = useRef();
   let [isVaild, setVaild] = useState(false);
 
   return (
@@ -22,22 +22,22 @@ function Login() {
           type="text"
           placeholder="전화번호,사용자 이름 또는 이메일"
           onChange={function handleIdInput(e) {
-            saveId(e.target.value);
-            id.includes("@") && pw.length >= 5
+            id.current.value.includes("@") && pw.current.value.length >= 5
               ? setVaild(true)
               : setVaild(false);
           }}
+          ref={id}
         />
         <input
           className="login-button login"
           type="password"
           placeholder="비밀번호"
           onChange={function handleInput(e) {
-            savePw(e.target.value);
-            id.includes("@") && pw.length >= 5
+            id.current.value.includes("@") && pw.current.value.length >= 5
               ? setVaild(true)
               : setVaild(false);
           }}
+          ref={pw}
         />
         <button
           className="login-button blue-button"

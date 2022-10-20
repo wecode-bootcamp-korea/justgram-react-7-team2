@@ -198,9 +198,12 @@ header {
     color: rgb(215 234 252);
   }
 }
-.newComment {
-  span {
-    padding-left: 5px;
+.newCommentProps {
+  .commentName {
+    padding-left: 6px;
     font-weight: bold;
+  }
+  .tag {
+    color: rgb(18 65 115);
   }
 }
