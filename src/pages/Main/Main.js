@@ -1,5 +1,6 @@
 import { Fragment, useState, useRef } from "react";
 import "./Main.scss";
+import Feed from "./Component/Feed";
 
 function Main() {
   //댓글 목록 관리
@@ -44,7 +45,8 @@ function Main() {
         </div>
       </header>
       <main className="alignCenter">
-        <div className="feed">
+        <Feed />
+        {/* <div className="feed">
           <div className="feedHeader">
             <div className="profileDiv alignCenter">
               <div className="user alignCenter">
@@ -340,7 +342,7 @@ function Main() {
             </div>
             <button className="addBtn">게시</button>
           </div>
-        </div>
+        </div> */}
       </main>
     </Fragment>
   );

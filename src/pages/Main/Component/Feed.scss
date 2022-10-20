@@ -1,0 +1,109 @@
+$border-gray: 1px solid #dbdbdb;
+.feed {
+  width: 470px;
+  background-color: #fff;
+  border: $border-gray {
+    radius: 10px;
+  }
+}
+
+.feedHeader {
+  width: 468px;
+  height: 48px;
+  border-bottom: $border-gray;
+}
+
+.profileDiv {
+  justify-content: space-between;
+}
+
+.profileImg {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 10px 10px 0 10px;
+}
+
+.userName {
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.feedImgDiv {
+  width: 468px;
+  height: 468px;
+  justify-content: center;
+}
+
+.feedImg {
+  max-width: 468px;
+  max-height: 468px;
+}
+
+.feedHeaderMenu {
+  width: 20px;
+  height: 20px;
+  margin-top: 5px 20px 0 0;
+}
+
+.feedHeaderMenuImg {
+  width: 20px;
+  height: 20px;
+}
+
+.feedMenu {
+  width: 468px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#feedLeft {
+  justify-content: center;
+  gap: 10px;
+  margin-left: 10px;
+}
+
+#feedRight {
+  justify-content: center;
+  gap: 10px;
+  margin-right: 10px;
+}
+
+.feedIcon {
+  width: 25px;
+  height: 25px;
+}
+
+/* add Comment */
+.addComment {
+  border-top: $border-gray;
+  justify-content: space-between;
+}
+
+.smile {
+  width: 23px;
+  height: 23px;
+  margin: 5px 10px 0 10px;
+}
+
+.commentInput {
+  border: none;
+  width: 375px;
+  &:focus {
+    outline: none;
+  }
+}
+
+.addBtn {
+  border: none;
+  background-color: #fff;
+  color: #e6f4fe;
+  margin-right: 10px;
+  cursor: pointer;
+  font: {
+    size: 14px;
+    weight: 700;
+  }
+}

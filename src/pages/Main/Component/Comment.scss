@@ -1,0 +1,44 @@
+.comment {
+  padding: 15px;
+  padding-top: 0;
+}
+
+.countLikes {
+  margin-bottom: 20px;
+  font: {
+    size: 14px;
+    weight: 700;
+  }
+}
+
+.writer {
+  display: inline-block;
+  margin-right: 5px;
+  font: {
+    weight: 700;
+    size: 12px;
+  }
+}
+
+.commentP {
+  line-height: 0.8em;
+  font-size: 14px;
+  display: flex;
+  gap: 5px;
+}
+
+.commentList p {
+  line-height: 0.5em;
+}
+
+.grayFont {
+  color: #8e8e8e;
+}
+
+.tag {
+  color: #00376b;
+}
+
+.writeDate {
+  font-size: 10px;
+}

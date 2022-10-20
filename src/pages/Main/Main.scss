@@ -1,4 +1,3 @@
-/*background-image로 사용할 이미지는 src/assets/images/에 있음*/
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 
 * {
@@ -71,33 +70,20 @@ header {
   }
 }
 
-// #searchInput::placeholder {
-//   text-align: center;
-//   color: #bebfc1;
-//   background: url("../../assets/images/search.png") no-repeat {
-//     size: 13px 13px;
-//     position: left 38% top 50%;
-//   }
-// }
-
-// #searchInput:focus {
-//   outline: none;
-// }
 #searchInput {
   &::placeholder {
     text-align: center;
-  color: #bebfc1;
-  background: url("../../assets/images/search.png") no-repeat {
-    size: 13px 13px;
-    position: left 38% top 50%;
-  }
+    color: #bebfc1;
+    background: url("../../assets/images/search.png") no-repeat {
+      size: 13px 13px;
+      position: left 38% top 50%;
+    }
   }
 
   &:focus {
     outline: none;
   }
 }
-
 
 /* 헤더 오른쪽 부분 아이콘 */
 #headerRight {
@@ -123,171 +109,14 @@ header {
   background-size: cover;
 }
 
-/* feed */
-
-.alignCenter {
-  display: flex;
-  align-items: center;
-}
-
+// main 영역
 main {
   flex-direction: column;
   justify-content: center;
   gap: 20px;
 }
 
-.feed {
-  width: 470px;
-  background-color: #fff;
-  border: 1px solid #dbdbdb {
-    radius: 10px;
-  }
-}
-
-.feedHeader {
-  width: 468px;
-  height: 48px;
-  border-bottom: 1px solid #dbdbdb;
-}
-
-.profileDiv {
-  justify-content: space-between;
-}
-
-.profileImg {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  margin: 10px 10px 0 10px;
-}
-
-.userName {
-  margin-top: 5px;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.feedImgDiv {
-  width: 468px;
-  height: 468px;
-  justify-content: center;
-}
-
-.feedImg {
-  max-width: 468px;
-  max-height: 468px;
-}
-
-.feedHeaderMenu {
-  width: 20px;
-  height: 20px;
-  margin-top: 5px 20px 0 0;
-}
-
-.feedHeaderMenuImg {
-  width: 20px;
-  height: 20px;
-}
-
-.feedMenu {
-  width: 468px;
-  height: 40px;
+.alignCenter {
   display: flex;
-  justify-content: space-between;
-}
-
-#feedLeft {
-  justify-content: center;
-  gap: 10px;
-  margin-left: 10px;
-}
-
-#feedRight {
-  justify-content: center;
-  gap: 10px;
-  margin-right: 10px;
-}
-
-.feedIcon {
-  width: 25px;
-  height: 25px;
-}
-
-/* 댓글 */
-.comment {
-  padding: 15px;
-  padding-top: 0;
-}
-
-.countLikes {
-  margin-bottom: 20px;
-  font: {
-    size: 14px;
-    weight: 700;
-  }
-}
-
-.writer {
-  display: inline-block;
-  margin-right: 5px;
-  font: {
-    weight: 700;
-    size: 12px;
-  }
-}
-
-.commentP {
-  line-height: 0.8em;
-  font-size: 14px;
-  display: flex;
-  gap: 5px;
-}
-
-.commentList p {
-  line-height: 0.5em;
-}
-
-.grayFont {
-  color: #8e8e8e;
-}
-
-.tag {
-  color: #00376b;
-}
-
-.writeDate {
-  font-size: 10px;
-}
-
-/* add Comment */
-.addComment {
-  border-top: 1px solid #dbdbdb;
-  justify-content: space-between;
-}
-
-.smile {
-  width: 23px;
-  height: 23px;
-  margin: 5px 10px 0 10px;
-}
-
-.commentInput {
-  border: none;
-  width: 375px;
-}
-
-.commentInput:focus {
-  outline: none;
-}
-
-.addBtn {
-  border: none;
-  background-color: #fff;
-  color: #e6f4fe;
-  margin-right: 10px;
-  cursor: pointer;
-  font: {
-    size: 14px;
-    weight: 700;
-  }
+  align-items: center;
 }
