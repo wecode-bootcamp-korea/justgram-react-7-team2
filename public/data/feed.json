@@ -1,0 +1,20 @@
+{
+  "feeds": [
+    {
+      "id": 1,
+      "writer": "dawonOh",
+      "profileImg": "https://images.unsplash.com/photo-1666208148881-1de44c9b2631?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "content": "hello!",
+      "img": "https://images.unsplash.com/photo-1661956602926-db6b25f75947?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=998&q=80",
+      "likesCount": 4
+    },
+    {
+      "id": 2,
+      "writer": "whoIam",
+      "profileImg": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1143&q=80",
+      "content": "hiiiii",
+      "img": "https://images.unsplash.com/photo-1666278885974-cb4ffbb2c606?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "likesCount": 20
+    }
+  ]
+}

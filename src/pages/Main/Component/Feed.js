@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useRef, useState } from "react";
 import Comment from "./Comment";
 import "./Feed.scss";
 
-function Feed() {
+function Feed(props) {
   //댓글 목록 관리
   const [commentArray, setCommentArray] = useState([]);
 
@@ -36,11 +36,11 @@ function Feed() {
           <div className="profileDiv alignCenter">
             <div className="user alignCenter">
               <img
-                src={process.env.PUBLIC_URL + `/images/cookie.jpg`}
+                src={props.profileImg}
                 alt="프로필사진"
                 className="profileImg"
               />
-              <span className="userName">dawon_Oh</span>
+              <span className="userName">{props.writer}</span>
             </div>
             <div className="feedHeaderMenu">
               <img
@@ -52,11 +52,7 @@ function Feed() {
           </div>
         </div>
         <div className="feedImgDiv alignCenter">
-          <img
-            src={process.env.PUBLIC_URL + `/images/sky.jpg`}
-            alt="하늘이미지"
-            className="feedImg"
-          />
+          <img src={props.img} alt="피드 메인 이미지" className="feedImg" />
         </div>
         <div className="feedMenu">
           <div id="feedLeft" className="alignCenter">
@@ -93,10 +89,10 @@ function Feed() {
           </div>
         </div>
         <div className="comment">
-          <p className="countLikes commentP">좋아요 4개</p>
+          <p className="countLikes commentP">좋아요 {props.likesCount}개</p>
           <p className="commentP">
-            <span className="writer">dawon_Oh</span>
-            <span className="content">날씨 좋다🌞</span>
+            <span className="writer">{props.writer}</span>
+            <span className="content">{props.content}</span>
           </p>
           {commentArray.map((comment) => {
             return (
