@@ -1,4 +1,4 @@
-import React, { Fragment, useRef, useState } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import Comment from "./Comment";
 import "./Feed.scss";
 
@@ -6,20 +6,29 @@ function Feed() {
   //댓글 목록 관리
   const [commentArray, setCommentArray] = useState([]);
 
+  //public/data/comment.json 읽어오기
+  useEffect(() => {
+    fetch("/data/comment.json", { method: "GET" })
+      .then((res) => res.json())
+      .then((res) => {
+        setCommentArray(res.comment);
+      });
+  }, []);
+
   //각 댓글에는 고유한 key값이 있어야 한다.
-  const [id, setId] = useState(1);
-  const value = useRef();
+  // const [id, setId] = useState(1);
+  // const value = useRef();
 
   //댓글 추가 함수
-  const addComment = () => {
-    setId(id + 1);
-    const newComment = {
-      id: id,
-      content: value.current.value,
-    };
+  // const addComment = () => {
+  //   setId(id + 1);
+  //   const newComment = {
+  //     id: id,
+  //     content: value.current.value,
+  //   };
 
-    setCommentArray([...commentArray, newComment]);
-  };
+  //   setCommentArray([...commentArray, newComment]);
+  // };
   return (
     <Fragment>
       <div className="feed">
@@ -90,7 +99,13 @@ function Feed() {
             <span className="content">날씨 좋다🌞</span>
           </p>
           {commentArray.map((comment) => {
-            return <Comment key={comment.id} content={comment.content} />;
+            return (
+              <Comment
+                key={comment.id}
+                writer={comment.writer}
+                content={comment.content}
+              />
+            );
           })}
           <div className="writeDate grayFont">2일 전</div>
         </div>
@@ -108,13 +123,11 @@ function Feed() {
                 type="text"
                 placeholder="댓글 달기..."
                 className="commentInput"
-                ref={value}
+                // ref={value}
               />
             </div>
           </div>
-          <button className="addBtn" onClick={addComment}>
-            게시
-          </button>
+          <button className="addBtn">게시</button>
         </div>
       </div>
     </Fragment>

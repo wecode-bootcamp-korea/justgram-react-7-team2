@@ -1,0 +1,29 @@
+{
+  "comment": [
+    {
+      "id": 1,
+      "writer": "dawonOh",
+      "content": "안녕하세요"
+    },
+    {
+      "id": 2,
+      "writer": "comment",
+      "content": "댓글입니다"
+    },
+    {
+      "id": 3,
+      "writer": "friend",
+      "content": "친구입니다"
+    },
+    {
+      "id": 4,
+      "writer": "cat",
+      "content": "고양이입니다"
+    },
+    {
+      "id": 5,
+      "writer": "dog",
+      "content": "개 입니다"
+    }
+  ]
+}
