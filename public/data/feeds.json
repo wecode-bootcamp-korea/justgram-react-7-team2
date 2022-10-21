@@ -1,0 +1,39 @@
+{
+  "feedData": [
+    {
+      "feedId": 1,
+      "username": "snoopy_Peanuts",
+      "feedImage": "/image/peed1.jpg",
+      "content": "복실복실 너무 귀여워 ㅜㅜ 🤎",
+      "userImage": "/image/user1.png"
+    },
+    {
+      "feedId": 2,
+      "username": "Winnie_the_Pooh",
+      "feedImage": "/image/peed2.jpg",
+      "content": "티비에 집중한 갱얼쥐 📺",
+      "userImage": "/image/user2.png"
+    },
+    {
+      "feedId": 3,
+      "username": "piglet_P",
+      "feedImage": "/image/peed3.jpg",
+      "content": "잔디를 접수해따 🌿",
+      "userImage": "/image/user3.png"
+    },
+    {
+      "feedId": 4,
+      "username": "ee_yore",
+      "feedImage": "/image/peed4.jpg",
+      "content": "꿈나라 💤",
+      "userImage": "/image/user4.png"
+    },
+    {
+      "feedId": 5,
+      "username": "tigger_T_T",
+      "feedImage": "/image/peed5.jpg",
+      "content": "순간포착 뚠딴📸",
+      "userImage": "/image/user5.png"
+    }
+  ]
+}

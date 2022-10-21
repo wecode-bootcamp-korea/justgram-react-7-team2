@@ -1,8 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Comment from "./Comment";
 import "./Main.scss";
 
-const Feed = () => {
+const Feed = ({ feedData }) => {
+  const { username, feedImage, content, userImage } = feedData;
+
   const [id, setId] = useState(1);
   const [text, setText] = useState("");
   const value = useRef();
@@ -13,6 +15,7 @@ const Feed = () => {
     const newComment = {
       id: id,
       plusComment: value.current.value,
+      createdAt: new Date().toLocaleString(),
     };
     setCommentArray([...commentArray, newComment]);
   };
@@ -33,18 +36,28 @@ const Feed = () => {
     }
   };
 
+  useEffect(() => {
+    fetch("/data/comments.json")
+      .then((res) => res.json())
+      .then((data) => setCommentArray(data.comments));
+  }, []);
+
   return (
-    <div className="feed">
-      <div className="feed-content">
+    <>
+      <div className="feedContent">
         <div className="feed-head">
           <div className="feed-nav">
-            <p className="nav-img"></p>
+            <p className="nav-img">
+              <img src={userImage} alt="" />
+            </p>
           </div>
-          <p className="my-name">hank_says_hank</p>
-          <p className="more-img"></p>
+          <p className="my-name">{username}</p>
+          <p className="more-img"> </p>
         </div>
 
-        <div className="feed-img image1"></div>
+        <div className="feed-img">
+          <img src={feedImage} alt="" />
+        </div>
         <div className="like">
           <div className="like-box">
             <div className="like-left-icon">
@@ -65,15 +78,17 @@ const Feed = () => {
         </div>
         <div className="message">
           <div className="m-text">
-            <b>hank_says_hank</b>
-            <span>
-              복실복실 너무 귀엽다.. 아 귀여운데..? 진짜 너무 귀여운데..?
-            </span>
+            <b>{username}</b>
+            <span>{content}</span>
           </div>
           <ul className="m-box">
             {commentArray.map((comment) => {
               return (
-                <Comment plusComment={comment.plusComment} key={comment.id} />
+                <Comment
+                  key={comment.id}
+                  user={comment.user || "hi_teddyBear"}
+                  content={comment.content || comment.plusComment}
+                />
               );
             })}
           </ul>
@@ -95,191 +110,7 @@ const Feed = () => {
           </button>
         </div>
       </div>
-      <div className="feed-content">
-        <div className="feed-head">
-          <div className="feed-nav">
-            <p className="nav-img"></p>
-          </div>
-          <p className="my-name">hank_says_hank</p>
-          <p className="more-img"></p>
-        </div>
-
-        <div className="feed-img image2"></div>
-        <div className="like">
-          <div className="like-box">
-            <div className="like-left-icon">
-              <i className="heart"></i>
-              <i className="chat"></i>
-              <i className="dm"></i>
-            </div>
-            <div className="like-right-icon">
-              <i className="keep"></i>
-            </div>
-          </div>
-          <div className="like-people">
-            <p className="people-img"></p>
-            <span>
-              <b>hi_teddyBear</b>님 <b>여러 명</b>이 좋아합니다
-            </span>
-          </div>
-        </div>
-        <div className="message">
-          <div className="m-text">
-            <b>hank_says_hank</b>
-            <span>티비 보는 중,,,📺</span>
-          </div>
-          <ul className="m-box"></ul>
-          <p className="m-time">3시간 전</p>
-        </div>
-        <div className="comment">
-          <p className="emoji">🥰</p>
-          <input
-            type="text"
-            className="comment-box"
-            placeholder="댓글달기..."
-          />
-          <button className="comment-btn">게시</button>
-        </div>
-      </div>
-      <div className="feed-content">
-        <div className="feed-head">
-          <div className="feed-nav">
-            <p className="nav-img"></p>
-          </div>
-          <p className="my-name">hank_says_hank</p>
-          <p className="more-img"></p>
-        </div>
-
-        <div className="feed-img image3"></div>
-        <div className="like">
-          <div className="like-box">
-            <div className="like-left-icon">
-              <i className="heart"></i>
-              <i className="chat"></i>
-              <i className="dm"></i>
-            </div>
-            <div className="like-right-icon">
-              <i className="keep"></i>
-            </div>
-          </div>
-          <div className="like-people">
-            <p className="people-img"></p>
-            <span>
-              <b>hi_teddyBear</b>님 <b>여러 명</b>이 좋아합니다
-            </span>
-          </div>
-        </div>
-        <div className="message">
-          <div className="m-text">
-            <b>hank_says_hank</b>
-            <span>잔디 접수해따 !!!! 💨</span>
-          </div>
-          <ul className="m-box"></ul>
-          <p className="m-time">3시간 전</p>
-        </div>
-        <div className="comment">
-          <p className="emoji">🥰</p>
-          <input
-            type="text"
-            className="comment-box"
-            placeholder="댓글달기..."
-          />
-          <button className="comment-btn">게시</button>
-        </div>
-      </div>
-      <div className="feed-content">
-        <div className="feed-head">
-          <div className="feed-nav">
-            <p className="nav-img"></p>
-          </div>
-          <p className="my-name">hank_says_hank</p>
-          <p className="more-img"></p>
-        </div>
-
-        <div className="feed-img image4"></div>
-        <div className="like">
-          <div className="like-box">
-            <div className="like-left-icon">
-              <i className="heart"></i>
-              <i className="chat"></i>
-              <i className="dm"></i>
-            </div>
-            <div className="like-right-icon">
-              <i className="keep"></i>
-            </div>
-          </div>
-          <div className="like-people">
-            <p className="people-img"></p>
-            <span>
-              <b>hi_teddyBear</b>님 <b>여러 명</b>이 좋아합니다
-            </span>
-          </div>
-        </div>
-        <div className="message">
-          <div className="m-text">
-            <b>hank_says_hank</b>
-            <span>잘 때도 왕 귀엽습니다. 🛌</span>
-          </div>
-          <ul className="m-box"></ul>
-          <p className="m-time">3시간 전</p>
-        </div>
-        <div className="comment">
-          <p className="emoji">🥰</p>
-          <input
-            type="text"
-            className="comment-box"
-            placeholder="댓글달기..."
-          />
-          <button className="comment-btn">게시</button>
-        </div>
-      </div>
-      <div className="feed-content">
-        <div className="feed-head">
-          <div className="feed-nav">
-            <p className="nav-img"></p>
-          </div>
-          <p className="my-name">hank_says_hank</p>
-          <p className="more-img"></p>
-        </div>
-
-        <div className="feed-img image5"></div>
-        <div className="like">
-          <div className="like-box">
-            <div className="like-left-icon">
-              <i className="heart"></i>
-              <i className="chat"></i>
-              <i className="dm"></i>
-            </div>
-            <div className="like-right-icon">
-              <i className="keep"></i>
-            </div>
-          </div>
-          <div className="like-people">
-            <p className="people-img"></p>
-            <span>
-              <b>hi_teddyBear</b>님 <b>여러 명</b>이 좋아합니다
-            </span>
-          </div>
-        </div>
-        <div className="message">
-          <div className="m-text">
-            <b>hank_says_hank</b>
-            <span>메롱 〰️ 😜</span>
-          </div>
-          <ul className="m-box"></ul>
-          <p className="m-time">3시간 전</p>
-        </div>
-        <div className="comment">
-          <p className="emoji">🥰</p>
-          <input
-            type="text"
-            className="comment-box"
-            placeholder="댓글달기..."
-          />
-          <button className="comment-btn">게시</button>
-        </div>
-      </div>
-    </div>
+    </>
   );
 };
 export default Feed;

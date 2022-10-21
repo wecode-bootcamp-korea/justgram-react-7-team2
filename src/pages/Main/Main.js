@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Feed from "./Feed";
 import "./Main.scss";
@@ -8,6 +9,16 @@ const Main = () => {
   const goLogin = () => {
     navigate("/");
   };
+
+  const [feeds, setFeeds] = useState([]);
+
+  useEffect(() => {
+    fetch("/data/feeds.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setFeeds(data.feedData);
+      });
+  }, []);
 
   return (
     <div className="wrap">
@@ -40,7 +51,11 @@ const Main = () => {
       </header>
       <section>
         <div className="main-box">
-          <Feed />
+          <div className="feed">
+            {feeds.map((feedContent) => {
+              return <Feed key={feedContent.feedId} feedData={feedContent} />;
+            })}
+          </div>
           <div className="follow">
             <div className="account">
               <p className="my-img"></p>

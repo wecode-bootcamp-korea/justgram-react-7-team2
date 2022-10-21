@@ -1,11 +1,15 @@
 import React from "react";
 import "./Main.scss";
 
-const Comment = ({ plusComment }) => {
+const Comment = (props, { plusComment }) => {
+  const { user, content } = props;
   return (
     <li className="commentBox">
-      <b className="writer">hi_teddyBear</b>
-      <span className="plusComment">{plusComment}</span>
+      <b className="writer">{user}</b>
+      <span className="plusComment">
+        {content}
+        {plusComment}
+      </span>
     </li>
   );
 };
