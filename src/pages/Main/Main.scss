@@ -1,0 +1,60 @@
+.container2 {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    header {
+        width: 100%;
+        padding: 10px 0;
+        margin: 0;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        align-items: center;
+        border-bottom: 1px solid #ddd;
+    }
+    header div {
+        padding: 3px;
+    }
+    header .logo {
+        display: flex;
+        align-items: center;
+    }
+    header .logo .bar {
+        width: 1px;
+        height: 20px;
+        background-color: #000;
+        margin: 0 10px;
+        padding: 0;
+    }
+    header .logo .instaFont a {
+        font-family: "Lobster", cursive;
+        font-size: 30px;
+        cursor: pointer;
+        display: block;
+        width: 100%;
+        text-decoration: none;
+        color: #000;
+    }
+    header .search {
+        border: 1px solid rgb(189, 189, 189);
+        background-color: rgb(242, 242, 242);
+        color: rgb(79, 79, 79);
+        text-align: center;
+        font-size: 12px;
+        width: 200px;
+        height: 20px;
+        line-height: 20px;
+        border-radius: 5px;
+    }
+    header .search img {
+        color: rgb(79, 79, 79);
+    }
+    header .search input {
+        border: none;
+        background-color: rgb(242, 242, 242);
+        outline: none;
+    }
+    header .icon img {
+        margin: 0 7px;
+    }
+}

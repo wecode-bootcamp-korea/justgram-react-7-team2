@@ -1,0 +1,24 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "kwonnahyun",
+            "content": "안녕~"
+        },
+        {
+            "id": 2,
+            "name": "hello",
+            "content": "React"
+        },
+        {
+            "id": 3,
+            "name": "nuyhannowk__",
+            "content": "mock data test"
+        },
+        {
+            "id": 4,
+            "name": "blahblahblah",
+            "content": "test"
+        }
+    ]
+}
