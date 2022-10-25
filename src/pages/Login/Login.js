@@ -1,33 +1,51 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef } from "react";
 import "./Login.scss";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
-function Login() {
-  const navigate = useNavigate();
-  const [id, setId] = useState();
-  const [password, setPassword] = useState();
-  const [isValid, setIsValid] = useState(false);
+const Login = () => {
+  const id = useRef();
+  const pw = useRef();
+  // const navigate = useNavigate();
+  // const [id, setId] = useState();
+  // const [password, setPassword] = useState();
+  // const [isValid, setIsValid] = useState(false);
 
-  const handleIdInput = (event) => {
-    const idValue = event.target.value;
-    setId(idValue);
-    idValue.includes("@") && password && password.length >= 5
-      ? setIsValid(true)
-      : setIsValid(false);
+  // const handleIdInput = (event) => {
+  //   const idValue = event.target.value;
+  //   setId(idValue);
+  //   idValue.includes("@") && password && password.length >= 5
+  //     ? setIsValid(true)
+  //     : setIsValid(false);
+  // };
+
+  // const handlepwdInput = (event) => {
+  //   const pwValue = event.target.value;
+  //   setPassword(pwValue);
+  //   id.includes("@") && pwValue.length >= 5
+  //     ? setIsValid(true)
+  //     : setIsValid(false);
+  // };
+
+  // const goMain = () => {
+  //   isValid ? navigate("/main") : navigate("/");
+  // };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    console.log("0");
+    fetch("http://localhost:8000/users/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: id.current.value,
+        password: pw.current.value,
+      }),
+    })
+      .then((response) => response.json())
+      .then((result) => localStorage.setItem("token", result.token));
   };
-
-  const handlePwdInput = (event) => {
-    const pwdValue = event.target.value;
-    setPassword(pwdValue);
-    id.includes("@") && pwdValue.length >= 5
-      ? setIsValid(true)
-      : setIsValid(false);
-  };
-
-  const goMain = () => {
-    isValid ? navigate("/main") : navigate("/");
-  };
-
   return (
     <div className="wrap">
       <div className="container">
@@ -43,20 +61,18 @@ function Login() {
                   type="text"
                   id="user"
                   placeholder="전화번호, 사용자 이름 또는 이메일"
-                  onChange={handleIdInput}
+                  ref={id}
                 />
                 <input
                   type="password"
                   id="password"
                   placeholder="비밀번호"
-                  onChange={handlePwdInput}
+                  ref={pw}
                 />
                 <button
-                  style={{
-                    backgroundColor: isValid ? "#005df4" : "#0095ff4f",
-                  }}
+                  // style={{backgroundColor: isValid ? "#005df4" : "#0095ff4f"}}
                   className="login-btn"
-                  onClick={goMain}
+                  onClick={(e) => handleLogin(e)}
                 >
                   로그인
                 </button>
@@ -124,6 +140,6 @@ function Login() {
       </div>
     </div>
   );
-}
+};
 
 export default Login;

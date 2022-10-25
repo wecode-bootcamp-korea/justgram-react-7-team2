@@ -20,6 +20,26 @@ const Main = () => {
       });
   }, []);
 
+  const [userEmail, setUserEmail] = useState();
+
+  useEffect(() => {
+    //1. 토큰 가져오기
+    const token = localStorage.getItem("token");
+    console.log(token);
+    if (!token) {
+      alert("유저가 아닙니다!");
+      return;
+    }
+    fetch("http://localhost:8000/users/me", {
+      method: "GET",
+      headers: {
+        token: token,
+      },
+    })
+      .then((response) => response.json())
+      .then((result) => setUserEmail(result.email));
+  }, []);
+
   return (
     <div className="wrap">
       <header>
@@ -60,7 +80,7 @@ const Main = () => {
             <div className="account">
               <p className="my-img"></p>
               <p className="my-name">
-                hi_teddyBear
+                {userEmail ? <b>{userEmail}</b> : " "}
                 <span>안녕! 내이름은 곰도리, 만나서 반가워 🐻</span>
               </p>
               <p className="my-change" onClick={goLogin}>
